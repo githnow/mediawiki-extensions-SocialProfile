@@ -1,24 +1,16 @@
 /**
  * JavaScript used on Special:UpdateProfile
- * Displays the "State" dropdown menu if selected country is the United States
+ * Displays the "State" dropdown menu if selected country is the "Россия"
  */
 ( function () {
 
 	var countries = [];
 	countries[ 0 ] = {
-		country: 'United States',
-		name: 'State',
+		country: 'Россия',
+		name: 'Регион',
 		sections: [
-			'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
-			'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
-			'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-			'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-			'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada',
-			'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-			'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
-			'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina',
-			'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			'Washington', 'Washington, D.C.', 'West Virginia', 'Wisconsin', 'Wyoming'
+			'Центральный ФО', 'Южный ФО', 'Северо-Западный ФО', 'Дальневосточный ФО',
+			'Сибирский ФО', 'Уральский ФО', 'Приволжский ФО', 'Северо-Кавказский ФО'
 		]
 	};
 
@@ -47,11 +39,11 @@
 	$( function () {
 		$( '#birthday' ).datepicker( {
 			changeYear: true,
-			yearRange: '1930:c',
+			yearRange: '1970:c',
 			dateFormat: $( '#birthday' ).hasClass( 'long-birthday' ) ? 'mm/dd/yy' : 'mm/dd'
 		} );
 
-		// US state selector -- but only on [[Special:UpdateProfile]] and [[Special:EditProfile]],
+		// state selector -- but only on [[Special:UpdateProfile]] and [[Special:EditProfile]],
 		// *not* on [[Special:UpdateProfile/custom]] etc.!
 		if (
 			(
@@ -82,30 +74,27 @@
 		}
 
 		$( 'body' ).on( 'mouseenter', '.eye-container', function () {
-			if ( $( this ).css( 'position' ) !== 'absolute' ) {
+			/*if ( $( this ).css( 'position' ) !== 'absolute' ) {
 				var offset = $( this ).offset();
-
 				$( 'body' ).append( $( this ) );
-
 				$( this ).css( {
 					position: 'absolute',
 					top: offset.top + 'px',
 					left: offset.left + 'px'
 				} );
-			}
+			}*/
 
 			$( this ).css( { zIndex: 1000 } );
 
-			$( this ).animate( { height: 100 }, 100 );
+			/*$( this ).animate( { height: 100 }, 100 );*/
 		} );
 		$( 'body' ).on( 'mouseleave', '.eye-container', function () {
-			$( this ).animate( { height: 20 }, 100 );
+			/*$( this ).animate( { height: 20 }, 100 );*/
 			$( this ).css( { zIndex: 10 } );
 		} );
 
 		$( 'body' ).on( 'click', '.eye-container > .menu > .item', function () {
-			$( this ).parent().parent().css( { height: 20 } );
-
+			/*$( this ).parent().parent().css( { height: 20 } );*/
 			var field_key = $( this ).parent().parent().attr( 'fieldkey' );
 			var priv = $( this ).attr( 'action' );
 			var this_element = $( this ).parent().parent();
@@ -126,21 +115,30 @@
 				privacy: encodeURIComponent( priv )
 			} ).done( function ( data ) {
 				var offset = $( this_element ).offset();
-				$( this_element ).remove();
 				var newEl = $( data.smpuserprivacy.replace );
-
-				$( newEl ).css( {
-					position: 'absolute',
-					top: offset.top + 'px',
-					left: offset.left + 'px',
-					// Apparently this is set inline, but it's not set anymore here
-					// (after the user has changed the value), which makes the button
-					// essentially invisible to the user. Fun!
-					zIndex: 10
+				// Find All elements classes is 'eye-container'
+				let eyeContainers = document.querySelectorAll('.eye-container');
+				// Searching the fieldkey in keys
+				for (let i = 0; i < eyeContainers.length; i++) {
+					let currentContainer = eyeContainers[i];
+					let currentFieldkey = currentContainer.getAttribute('fieldkey');
+					// If fieldkey same 'up_schools or someone' then add new element in old position
+					if (currentFieldkey === field_key) {
+						$( newEl ).css( {
+							position: 'relative',
+							// top: offset.top + 'px',
+							// left: offset.left + 'px',
+							// Apparently this is set inline, but it's not set anymore here
+							// (after the user has changed the value), which makes the button
+							// essentially invisible to the user. Fun!
+							zIndex: 10
+						} );					
+						$(currentContainer.parentNode).append( $( newEl ) );
+						$( this_element ).remove();
+					}
+				}
+				/*$( 'body' ).append( $( newEl ) );*/
 				} );
-
-				$( 'body' ).append( $( newEl ) );
-			} );
 		} );
 	} );
 

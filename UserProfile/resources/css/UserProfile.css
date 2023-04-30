@@ -461,3 +461,123 @@
 	height: 90px;
 	width: 425px;
 }
+
+/* Style correction */
+#profile-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+#profile-toggle-button,
+.profile-actions {
+  display: flex;
+  align-items: center;
+}
+
+#profile-toggle-button a,
+.profile-actions a {
+  margin-right: 10px;
+}
+
+#profile-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#profile-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user-section-heading {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user-section-title {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.user-section-actions {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.action-right {
+  float: right;
+}
+
+.visualClear {
+  clear: both;
+}
+
+/* Decors n Correction */
+.profile-info-container p {
+    color: #777;
+    margin: 6px 2px;
+}
+.label-info {
+    margin-bottom: -10px !important;
+}
+.label-info b {
+    color: #2a87d2;
+}
+.profile-info-container div {
+    padding-top: 1px;
+    margin: 10px;
+}
+.profile-info-item {
+    border: 1px dashed transparent;
+    border-radius: 10px;
+}
+.profile-info-item:hover {
+    border: 1px dashed #9c9c9c;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 0px #2a87d22e;
+}
+.vector-body .interests-info {
+    display: grid;
+    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px;
+}
+/* links */
+.vector-body .value-info a {
+    color: #2c52bf;
+    background: none !important;
+}
+.vector-body .value-info a:before {
+    content: '⚉ ';
+    color: #555;
+}
+.vector-body .profile-actions a {
+    background: none !important;
+    margin-right: 0 !important;
+    padding: 0;
+}
+.vector-body .profile-actions a:hover {
+    border-bottom: 0px solid #000 !important;
+    display: block; 
+    background-color: #d3dcf5 !important;
+    padding: 0;
+    margin-bottom: -3px;
+}
+#profile-image a {
+    padding-right: 0px !important;
+    margin-left: -8px;
+}
+@media screen and (max-width: 1200px) {
+  .vector-body .interests-info {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+  }
+}

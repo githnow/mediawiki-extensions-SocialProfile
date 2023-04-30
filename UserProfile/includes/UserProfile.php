@@ -195,6 +195,7 @@ class UserProfile {
 	 */
 	function formatBirthday( $birthday, $showYear = true ) {
 		$dob = explode( '-', $birthday );
+		setlocale(LC_TIME, "ru_RU");
 		if ( count( $dob ) == 3 ) {
 			$month = $dob[1];
 			$day = $dob[2];
@@ -202,18 +203,21 @@ class UserProfile {
 				if ( $dob[1] == '00' && $dob[2] == '00' ) {
 					return '';
 				} else {
-					return date( 'F jS', mktime( 0, 0, 0, $month, $day ) );
+					$formatted_date = strftime('%d.%m.%Y', mktime(0, 0, 0, $month, $day, $year));
+					return $formatted_date;
 				}
 			}
 			$year = $dob[0];
 			if ( $dob[0] == '00' && $dob[1] == '00' && $dob[2] == '00' ) {
 				return '';
 			} else {
-				return date( 'F jS, Y', mktime( 0, 0, 0, $month, $day, $year ) );
+				$formatted_date = strftime('%d.%m.%Y', mktime(0, 0, 0, $month, $day, $year));
+				return $formatted_date;
 			}
-			// return $day . ' ' . $wgLang->getMonthNameGen( $month );
+			 // @NO ACTIVE return $day . ' ' . $wgLang->getMonthNameGen( $month );
 		}
-		return $birthday;
+		return $formatted_date;
+		//return $birthday;
 	}
 
 	/**

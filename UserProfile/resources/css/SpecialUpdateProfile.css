@@ -111,7 +111,7 @@
 
 /* Privacy */
 .mw-special-UpdateProfile div#mw-content-text .visualClear {
-	height: 20px;
+	
 }
 
 .client-nojs .eye-container {
@@ -130,17 +130,10 @@
 }
 
 .eye-container {
-	width: 130px;
-	height: 20px;
 	/* @embed */
-	background: #a3c2d5 url(../../../images/eye.png) 0 0 no-repeat;
-	border-radius: 4px;
-	opacity: 0.5;
-	overflow: hidden;
+	opacity: 0.6;
 	position: relative;
-	top: -25px;
 	cursor: pointer;
-	box-shadow: 2px 2px 3px -1px darkgray;
 }
 
 /** @todo FIXME: this is an awful hack for Special:UpdateProfile (the "personal information" page) */
@@ -149,12 +142,12 @@ div.eye-container[fieldkey="up_email"],
 div.eye-container[fieldkey="up_location_city"],
 div.eye-container[fieldkey="up_hometown_country"],
 div.eye-container[fieldkey="up_birthday"] {
-	top: 5px;
+	/* top: 5px; */
 }
 
 div.eye-container[fieldkey="up_hometown_city"],
 div.eye-container[fieldkey="up_location_country"] {
-	top: 10px;
+	/*top: 10px;*/
 }
 
 .eye-container:hover {
@@ -164,8 +157,6 @@ div.eye-container[fieldkey="up_location_country"] {
 .eye-container .title {
 	font-size: 12px;
 	font-weight: 700;
-	color: #fff;
-	padding: 0 0 0 25px;
 }
 
 .eye-container .menu {
@@ -174,19 +165,12 @@ div.eye-container[fieldkey="up_location_country"] {
 
 .eye-container .menu .item {
 	/* @embed */
-	background: #a3c2d5 url(../../../images/eye-bw.png) 5px 1px no-repeat;
-	color: #fff;
-	height: 18px;
-	font-size: 12px;
 	font-weight: 700;
-	padding: 0 0 0 30px;
-	margin: 4px 0 4px 0;
+	padding: 2px 0 2px 20px;
 }
 
 .eye-container .menu .item:hover {
-	background-color: #fff;
-	box-shadow: 1px 1px 1px -1px #000;
-	color: #a3c2d5;
+
 }
 
 /*

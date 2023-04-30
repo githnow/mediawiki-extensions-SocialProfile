@@ -629,7 +629,7 @@ class UserProfilePage extends Article {
 
 			$value = $out->parseAsInterface( trim( $value ), false );
 
-			$output = "<div><b>{$label}</b>{$value}</div>";
+			$output = "<div class=\"profile-info-item\"><div class=\"label-info\"><b>{$label}</b></div><div class=\"value-info\">{$value}</div></div>";
 		}
 		return $output;
 	}
@@ -782,7 +782,7 @@ class UserProfilePage extends Article {
 				</div>
 			</div>
 			<div class="visualClear"></div>
-			<div class="profile-info-container">' .
+			<div class="profile-info-container personal-info">' .
 				$personal_output .
 			'</div>';
 		} elseif ( $this->viewingUser->getName() == $this->profileOwner->getName() ) {
@@ -859,7 +859,7 @@ class UserProfilePage extends Article {
 				</div>
 			</div>
 			<div class="visualClear"></div>
-			<div class="profile-info-container">' .
+			<div class="profile-info-container custom-info">' .
 				$custom_output .
 			'</div>';
 		} elseif ( $this->viewingUser->getName() == $this->profileOwner->getName() ) {
@@ -951,7 +951,7 @@ class UserProfilePage extends Article {
 				</div>
 			</div>
 			<div class="visualClear"></div>
-			<div class="profile-info-container">' .
+			<div class="profile-info-container interests-info">' .
 				$interests_output .
 			'</div>';
 		} elseif ( $this->isOwner() ) {
