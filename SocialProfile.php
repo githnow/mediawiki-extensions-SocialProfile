@@ -126,8 +126,8 @@ $wgAvatarKey = 'userphoto';
 $wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'SocialProfile',
-	'author' => [ 'Aaron Wright', 'David Pean', 'Jack Phoenix' ],
-	'version' => '1.14',
+	'author' => [ 'Aaron Wright', 'David Pean', 'Jack Phoenix', '[https://www.salebot.wiki/page/User:BotDev.One Bot Dev] <salebot.wiki>' ],
+	'version' => '1.14 fork [https://github.com/githnow/mediawiki-extensions-SocialProfile @githnow]',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:SocialProfile',
 	'descriptionmsg' => 'socialprofile-desc',
 ];
