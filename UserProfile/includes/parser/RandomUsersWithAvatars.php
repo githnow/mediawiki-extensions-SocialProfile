@@ -25,7 +25,7 @@ class RandomUsersWithAvatars {
 	 * @return string
 	 */
 	public static function getRandomUsersWithAvatars( $input, array $args, Parser $parser ) {
-		global $wgDBname;
+		global $wgAvatarKey;
 
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$parser->getOutput()->addModuleStyles( [ 'ext.socialprofile.userprofile.randomuserswithavatars.styles' ] );
